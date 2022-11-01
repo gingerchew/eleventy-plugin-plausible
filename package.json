@@ -1,0 +1,34 @@
+{
+  "name": "eleventy-plugin-plausible",
+  "version": "1.0.0",
+  "description": "Add the analytics script tag with a shortcode and remove some of the worry",
+  "homepage": "",
+  "main": ".eleventy.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "bump": "npm --no-git-tag-version version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gingerchew/eleventy-plugin-plausible.git"
+  },
+  "keywords": [
+    "11ty",
+    "11ty-plugin",
+    "eleventy",
+    "eleventy-plugin",
+    "plausible-analytics"
+  ],
+  "author": {
+    "name": "gingerchew",
+    "url": "https://ginger.wtf"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gingerchew/eleventy-plugin-plausible/issues"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "1.0.2"
+  }
+}
