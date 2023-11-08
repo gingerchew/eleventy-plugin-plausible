@@ -24,7 +24,7 @@
     "name": "gingerchew",
     "url": "https://ginger.wtf"
   },
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/gingerchew/eleventy-plugin-plausible/issues"
   },
