@@ -94,12 +94,12 @@ module.exports = (eleventyConfig, _options) => {
     }
     src += '.js';
 
-    return `<script ${attr} data-domain="${domain}" ${props}  ${includeAttr} ${excludeAttr} ${src}></script>`;
+    return `<script ${attr} data-domain="${domain}" ${props} ${excludeAttr} ${src}></script>`;
   }
 
   // You can create more than filters as a plugin, but here's an example
   eleventyConfig.addShortcode("plausible", getScriptEl);
-  
+
   // Add this to the head of your 404 page
   // Follow the instructions here to see 404 stats: https://plausible.io/docs/error-pages-tracking-404#3-create-a-custom-event-goal-in-your-plausible-analytics-account
   eleventyConfig.addShortcode("plausible404", () => `<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
