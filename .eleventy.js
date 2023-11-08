@@ -48,23 +48,23 @@ module.exports = (eleventyConfig, _options) => {
   if (!domain) {
     throw new Error('Must include domain option.');
   }
-  scriptExtensions = new Set(scriptExtensions);
+  // scriptExtensions = new Set(scriptExtensions);
   if (domain.startsWith('https://')) domain = domain.slice(8);
   if (domain.startsWith('http://')) domain = domain.slice(7);
   const attr = async ? ' async defer ' : ' defer ';
-  let src= !proxyPath ? "https://plausible.io/js/script" : proxyPath;
   
   let excludeAttr = ''
   if (exclude.length) {
-    scriptExtensions.add('exclusions')
+    scriptExtensions.push('exclusions')
     excludeAttr = ' data-exclude="' + exclude.join(', ') + '" ';
-  
-    excludeAttr += include.length ?
-      ' data-include"' + include.join(', ') + '" ' :
-      '';
-  }
     
+    excludeAttr += include.length ?
+    ' data-include"' + include.join(', ') + '" ' :
+    '';
+  }
+  
   const getScriptEl = (content) => {
+    let src= !proxyPath ? "https://plausible.io/js/script" : proxyPath;
     /**
      * Pass in page properties by putting **_valid_** json
      * in between the start and end tags 
@@ -80,7 +80,7 @@ module.exports = (eleventyConfig, _options) => {
      */
     let props = '';
     if (content.length) {
-      scriptExtensions.add('pageview-props');
+      scriptExtensions.push('pageview-props');
       content = content.trim()
       try {
         const propsJSON = JSON.parse(content);
@@ -89,10 +89,11 @@ module.exports = (eleventyConfig, _options) => {
         console.log('Error: ', e.message);
       }
     }
-    if (scriptExtensions) {
-      src = `${src}.${[...scriptExtensions].join('.')}`
+    if (scriptExtensions.length) {
+      src = `${src}.${Array.from(new Set(scriptExtensions)).join('.')}.js`
+    } else {
+      src += '.js';
     }
-    src += '.js';
 
     return `<script ${attr} data-domain="${domain}" ${props} ${excludeAttr} src="${src}"></script>`;
   }
