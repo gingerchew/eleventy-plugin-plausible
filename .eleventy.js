@@ -48,7 +48,7 @@ module.exports = (eleventyConfig, _options) => {
   if (!domain) {
     throw new Error('Must include domain option.');
   }
-  scriptExtensions = new Set(...scriptExtensions);
+  scriptExtensions = new Set(scriptExtensions);
   if (domain.startsWith('https://')) domain = domain.slice(8);
   if (domain.startsWith('http://')) domain = domain.slice(7);
   const attr = async ? ' async defer ' : ' defer ';
@@ -94,7 +94,7 @@ module.exports = (eleventyConfig, _options) => {
     }
     src += '.js';
 
-    return `<script ${attr} data-domain="${domain}" ${props} ${excludeAttr} ${src}></script>`;
+    return `<script ${attr} data-domain="${domain}" ${props} ${excludeAttr} src="${src}"></script>`;
   }
 
   // You can create more than filters as a plugin, but here's an example
