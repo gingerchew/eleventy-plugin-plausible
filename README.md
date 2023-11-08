@@ -4,6 +4,7 @@
 
 ## TODO Before 2.0.0 Fully Releases
 
+- [ ] Test languages other than nunjucks
 - [ ] Test each option
   - [x] scriptExtensions
   - [x] proxyPath
