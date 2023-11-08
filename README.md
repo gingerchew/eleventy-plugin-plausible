@@ -2,6 +2,20 @@
 
 > Add the analytics script tag with a shortcode and remove *some* of the worry :)
 
+## TODO Before 2.0.0 Fully Releases
+
+- [ ] Test each option
+  - [x] scriptExtensions
+  - [x] proxyPath
+  - [x] exclude
+  - [ ] include
+  - [ ] async
+  - [ ] transform
+- [ ] Test error handling
+  - [ ] No domain
+  - [ ] Invalid JSON
+- [ ] Look for edgecases
+
 ### Using this plugin
 
 ```js
